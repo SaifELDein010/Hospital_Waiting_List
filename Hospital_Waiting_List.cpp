@@ -105,7 +105,30 @@ int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, 
 
 }
 
+void Perform_Choice(int choice) {
 
+
+	switch (choice) {
+
+	case 1:
+		// Add new patient
+		break;
+
+	case 2:
+		// print all patient
+		break;
+
+	case 3:
+		// Get next patient
+		break;
+
+	case 4:
+		//Exit
+
+	}
+
+
+}
 
 void Header_Of_Menu_Option() {
 
@@ -119,13 +142,18 @@ void Menu_Option_Screen() {
 	Header_Of_Menu_Option();
 
 	std::cout << "\t\t\t\t_-_-_-_-_-_-_-_ Menu Options _-_-_-_-_-_-_-_\n\n";
+
 	std::cout << "\t\t\t\t           [1] Add new patient\n";
 	std::cout << "\t\t\t\t           [2] Print all patients\n";
 	std::cout << "\t\t\t\t           [3] Get next patient\n";
 	std::cout << "\t\t\t\t           [4] Exit\n\n";
-	std::cout << "\t\t\t\t-_-_-_-_-_-_-_-_-_-_-_ -_-_-_-_-_-_-_-_-_-_-\n\n";
-	std::cout << "\t\t\t\t           Enter choice [1:4] ";
 
+	std::cout << "\t\t\t\t-_-_-_-_-_-_-_-_-_-_-_ -_-_-_-_-_-_-_-_-_-_-\n\n";
+
+	int choice = Read_Number_Between_2Numbers("\t\t\t\t           Enter choice [1:4] ", 
+		"\t\t\t\t  InValid number, Enter again [1:4] ", 1, 4);
+
+	Perform_Choice(choice);
 
 }
 
