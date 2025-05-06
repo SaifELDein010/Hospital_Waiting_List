@@ -87,10 +87,34 @@ int Number_Of_patient_In_waitingList(Node* head) {
 
 
 
+void Header_Of_Menu_Option() {
+
+	std::cout << "\t\t\t\t       ___ Hospital (Waiting list) ___ \n\n\n";
+
+}
+
+void Menu_Option_Screen() {
+
+
+	Header_Of_Menu_Option();
+
+	std::cout << "\t\t\t\t_-_-_-_-_-_-_-_ Menu Options _-_-_-_-_-_-_-_\n\n";
+	std::cout << "\t\t\t\t           [1] Add new patient\n";
+	std::cout << "\t\t\t\t           [2] Print all patients\n";
+	std::cout << "\t\t\t\t           [3] Get next patient\n";
+	std::cout << "\t\t\t\t           [4] Exit\n\n";
+	std::cout << "\t\t\t\t-_-_-_-_-_-_-_-_-_-_-_ -_-_-_-_-_-_-_-_-_-_-\n\n";
+	std::cout << "\t\t\t\t           Enter choice [1:4]   ";
+
+
+}
+
+
 int main() {
 
-	
+	Menu_Option_Screen();
 
+	system("Pause>0");
 	return 0;
 
 }
