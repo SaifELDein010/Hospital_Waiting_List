@@ -86,6 +86,26 @@ int Number_Of_patient_In_waitingList(Node* head) {
 }
 
 
+int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, int from, int to) {
+
+	int number = 0;
+
+	std::cout << message;
+	std::cin >> number;
+
+	while (number < from || number > to) {
+
+
+		std::cout << errorMessage;
+		std::cin >> number;
+
+	}
+
+	return number;
+
+}
+
+
 
 void Header_Of_Menu_Option() {
 
@@ -104,7 +124,7 @@ void Menu_Option_Screen() {
 	std::cout << "\t\t\t\t           [3] Get next patient\n";
 	std::cout << "\t\t\t\t           [4] Exit\n\n";
 	std::cout << "\t\t\t\t-_-_-_-_-_-_-_-_-_-_-_ -_-_-_-_-_-_-_-_-_-_-\n\n";
-	std::cout << "\t\t\t\t           Enter choice [1:4]   ";
+	std::cout << "\t\t\t\t           Enter choice [1:4] ";
 
 
 }
