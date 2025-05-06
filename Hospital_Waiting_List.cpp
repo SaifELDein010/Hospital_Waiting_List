@@ -114,21 +114,10 @@ std::string Read_text(std::string message) {
 	std::string text = "";
 
 	std::cout << message;
-	std::cin >> text;
+	std::getline(std::cin >> std::ws, text);
 
 	return text;
 }
-
-bool Read_Fact(std::string message) {
-
-	bool isTrue = 1;
-
-	std::cout << message;
-	std::cin >> isTrue;
-
-	return isTrue;
-}
-
 
 
 void Add_New_Patient_screen() {
@@ -139,25 +128,28 @@ void Add_New_Patient_screen() {
 	int specialization = Read_Number_Between_2Numbers("Enter number of specialization[1:3] : ", "Invalid number, Enter again [1:3]: ", 1, 3);
 
 
-	//If specialization full send message and break
+	if (Number_Of_patient_In_waitingList(_Specialization[specialization - 1]) == 5) {
+
+		std::cout << "The waiting list is full, Come back later";
+		system("Pause>0");
+		return;
+
+	}
+
 
 	std::string fullName = Read_text("Enter Full name: ");
-	bool isUrgent = Read_Fact("Enter case (1-> Urgent, 0-> Noraml): ");
+	bool isUrgent = Read_Number_Between_2Numbers("Enter case (1-> Urgent, 0-> Noraml): ", 
+		"Invalid input, Enter again (1-> Urgent, 0-> Noraml): ", 0, 1);
 
 	if (isUrgent) {
-		// Insert_Patient_In_Front(head, fullName);
+		Insert_Patient_In_Front(_Specialization[specialization - 1], fullName); 
 	}
 	else {
-		// Insert_Patient_At_End(head, fullName);
+		Insert_Patient_At_End(_Specialization[specialization - 1], fullName); 
 	}
 
 
 }
-
-
-
-
-
 
 
 
@@ -167,7 +159,8 @@ void Perform_Choice(int choice) {
 	switch (choice) {
 
 	case 1:
-		// Add new patient
+		std::system("cls");
+		Add_New_Patient_screen();
 		break;
 
 	case 2:
@@ -176,10 +169,6 @@ void Perform_Choice(int choice) {
 
 	case 3:
 		// Get next patient
-		break;
-
-	case 4:
-		//Exit
 		break;
 
 	}
@@ -193,7 +182,7 @@ void Header_Of_Menu_Option() {
 
 }
 
-void Menu_Option_Screen() {
+bool Menu_Option_Screen() {
 
 
 	Header_Of_Menu_Option();
@@ -210,14 +199,25 @@ void Menu_Option_Screen() {
 	int choice = Read_Number_Between_2Numbers("\t\t\t\t           Enter choice [1:4]: ", 
 		"\t\t\t\t  InValid number, Enter again [1:4]: ", 1, 4);
 
+	if (choice == 4)
+		return false;
+
 	Perform_Choice(choice);
 
+	return true;
 }
 
 
 int main() {
 
-	Menu_Option_Screen();
+	bool contnuie = true;
+
+	while (contnuie) {
+
+		system("cls");
+		contnuie = Menu_Option_Screen();
+
+	}
 
 	system("Pause>0");
 	return 0;
