@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+
+
 struct Node {
 
 	std::string fullName{ " " };
@@ -11,6 +13,9 @@ struct Node {
 
 };
 
+
+Node* head1 = nullptr, * head2 = nullptr, * head3 = nullptr;
+Node* _Specialization[3] = { head1 , head2 , head3};
 
 void Insert_Patient_In_Front(Node*& head, std::string fullName) {
 
@@ -85,7 +90,6 @@ int Number_Of_patient_In_waitingList(Node* head) {
 
 }
 
-
 int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, int from, int to) {
 
 	int number = 0;
@@ -104,6 +108,58 @@ int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, 
 	return number;
 
 }
+
+std::string Read_text(std::string message) {
+
+	std::string text = "";
+
+	std::cout << message;
+	std::cin >> text;
+
+	return text;
+}
+
+bool Read_Fact(std::string message) {
+
+	bool isTrue = 1;
+
+	std::cout << message;
+	std::cin >> isTrue;
+
+	return isTrue;
+}
+
+
+
+void Add_New_Patient_screen() {
+
+
+	std::cout << "___ Add Patient ___\n\n";
+
+	int specialization = Read_Number_Between_2Numbers("Enter number of specialization[1:3] : ", "Invalid number, Enter again [1:3]: ", 1, 3);
+
+
+	//If specialization full send message and break
+
+	std::string fullName = Read_text("Enter Full name: ");
+	bool isUrgent = Read_Fact("Enter case (1-> Urgent, 0-> Noraml): ");
+
+	if (isUrgent) {
+		// Insert_Patient_In_Front(head, fullName);
+	}
+	else {
+		// Insert_Patient_At_End(head, fullName);
+	}
+
+
+}
+
+
+
+
+
+
+
 
 void Perform_Choice(int choice) {
 
@@ -124,6 +180,7 @@ void Perform_Choice(int choice) {
 
 	case 4:
 		//Exit
+		break;
 
 	}
 
@@ -150,8 +207,8 @@ void Menu_Option_Screen() {
 
 	std::cout << "\t\t\t\t-_-_-_-_-_-_-_-_-_-_-_ -_-_-_-_-_-_-_-_-_-_-\n\n";
 
-	int choice = Read_Number_Between_2Numbers("\t\t\t\t           Enter choice [1:4] ", 
-		"\t\t\t\t  InValid number, Enter again [1:4] ", 1, 4);
+	int choice = Read_Number_Between_2Numbers("\t\t\t\t           Enter choice [1:4]: ", 
+		"\t\t\t\t  InValid number, Enter again [1:4]: ", 1, 4);
 
 	Perform_Choice(choice);
 
