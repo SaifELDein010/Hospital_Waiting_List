@@ -58,7 +58,8 @@ Add patient screen
 
 
 Show patient screen
-![[ShowPatientScreen.jpg]]
+![image](https://github.com/user-attachments/assets/567e6eb6-8455-4d15-891b-63c7b1bcee8c)
+
 
 
 
