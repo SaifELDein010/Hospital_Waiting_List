@@ -1,6 +1,7 @@
 
 #include <string>
 #include <iostream>
+#include <limits>
 
 // Structure of Patient and Specialization
 struct Node {
@@ -116,11 +117,15 @@ int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, 
 	std::cout << message;
 	std::cin >> number;
 
-	while (number < from || number > to) {
+	while (number < from || number > to || std::cin.fail()) {
 
+		std::cin.clear();
+
+		std::cin.ignore(INT_MAX, '\n');
 
 		std::cout << errorMessage;
 		std::cin >> number;
+
 
 	}
 
@@ -136,7 +141,7 @@ std::string Read_text(std::string message) {
 	std::getline(std::cin >> std::ws, text);
 
 	return text;
-}
+} 
 
 
 
