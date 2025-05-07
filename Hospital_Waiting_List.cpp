@@ -2,8 +2,7 @@
 #include <string>
 #include <iostream>
 
-
-
+// Structure of Patient and Specialization
 struct Node {
 
 	std::string fullName{ " " };
@@ -17,6 +16,8 @@ struct Node {
 Node* head1 = nullptr, * head2 = nullptr, * head3 = nullptr;
 Node* _Specialization[3] = { head1 , head2 , head3};
 
+
+// Functions() about manipulation Waiting list
 void Insert_Patient_In_Front(Node*& head, std::string fullName) {
 
 
@@ -107,6 +108,7 @@ void Print_Patients(Node* head) {
 }
 
 
+// Functions() about Read Input from users
 int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, int from, int to) {
 
 	int number = 0;
@@ -137,6 +139,7 @@ std::string Read_text(std::string message) {
 }
 
 
+
 void Go_Back_To_main_Menu() {
 
 	std::cout << "\n\n\nPress any key to go back to main options...";
@@ -145,10 +148,7 @@ void Go_Back_To_main_Menu() {
 }
 
 
-
-
-
-
+// Functions() about do Functional Requerment of system
 void Add_New_Patient_screen() {
 
 
@@ -218,7 +218,7 @@ void Get_Next_Patient() {
 	short numberOfSpecialization = Read_Number_Between_2Numbers("Enter number of specialization[1:3]: ", 
 		"Invalid Input, Enter again[1:3]: ", 1, 3);
 
-	short numberOfPatient = Number_Of_patient_In_waitingList(_Specialization[numberOfSpecialization]);
+	short numberOfPatient = Number_Of_patient_In_waitingList(_Specialization[numberOfSpecialization-1]);
 
 	if (numberOfPatient == 0) {
 
@@ -227,8 +227,8 @@ void Get_Next_Patient() {
 	}
 	else {
 
-		std::cout << _Specialization[numberOfSpecialization]->fullName << ", Go to the doctor.\n";
-		Delete_Patient_In_Front(_Specialization[numberOfSpecialization]);
+		std::cout << _Specialization[numberOfSpecialization-1]->fullName << ", Go to the doctor.\n";
+		Delete_Patient_In_Front(_Specialization[numberOfSpecialization-1]);
 
 
 	}
@@ -237,8 +237,7 @@ void Get_Next_Patient() {
 }
 
 
-
-
+// Main menu options screen
 void Perform_Choice(int choice) {
 
 
@@ -257,7 +256,9 @@ void Perform_Choice(int choice) {
 		break;
 
 	case 3:
-		// Get next patient
+		std::system("cls");
+		Get_Next_Patient(); 
+		Go_Back_To_main_Menu();
 		break;
 
 	}
