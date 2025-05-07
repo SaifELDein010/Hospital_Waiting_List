@@ -211,6 +211,32 @@ void Print_All_Patient() {
 
 }
 
+void Get_Next_Patient() {
+
+	std::cout << "___ Get next patient ___\n\n";
+
+	short numberOfSpecialization = Read_Number_Between_2Numbers("Enter number of specialization[1:3]: ", 
+		"Invalid Input, Enter again[1:3]: ", 1, 3);
+
+	short numberOfPatient = Number_Of_patient_In_waitingList(_Specialization[numberOfSpecialization]);
+
+	if (numberOfPatient == 0) {
+
+		std::cout << "The waiting list is empty, Take break a, Doctor.\n";
+
+	}
+	else {
+
+		std::cout << _Specialization[numberOfSpecialization]->fullName << ", Go to the doctor.\n";
+		Delete_Patient_In_Front(_Specialization[numberOfSpecialization]);
+
+
+	}
+
+
+}
+
+
 
 
 void Perform_Choice(int choice) {
