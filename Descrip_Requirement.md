@@ -52,7 +52,8 @@ First page
 
 
 Add patient screen
-![[AddPatientScreen.jpg]]
+![image](https://github.com/user-attachments/assets/8503fad2-13fd-4126-8dbf-a10771a2ac4f)
+
 
 
 
