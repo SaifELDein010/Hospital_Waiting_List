@@ -64,7 +64,8 @@ Show patient screen
 
 
 Get patient screen
-![[GetPatientScreen.jpg]]
+![image](https://github.com/user-attachments/assets/1e793532-4aaa-419b-97b4-66e3e7566286)
+
 
 
 
