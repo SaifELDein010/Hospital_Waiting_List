@@ -96,7 +96,8 @@ void Print_Patients(Node* head) {
 
 	while (head != nullptr) {
 
-		std::cout << number << ". " << head->fullName << "      his Case is: " << (head->isUrgent == 1) ? "Urgent" : "Normal\n";
+		std::cout << "\t\t\t   " << number << ". " << head->fullName << "      his Case is: ";
+		std::cout << ((head->isUrgent == 1) ? "Urgent\n" : "Normal\n");
 
 		head = head->next;
 		number++;
@@ -136,6 +137,12 @@ std::string Read_text(std::string message) {
 }
 
 
+void Go_Back_To_main_Menu() {
+
+	std::cout << "\n\n\nPress any key to go back to main options...";
+	system("Pause>0");
+
+}
 
 
 
@@ -177,19 +184,19 @@ void Add_New_Patient_screen() {
 void Print_All_Patient() {
 
 
-	std::cout << "___ Show all patients ___\n\n";
+	std::cout << "\t\t___ Show all patients ___\n\n\n";
 
 	for (int i = 0; i < 3; i++) {
 
 
 		int numberOfPatient = Number_Of_patient_In_waitingList(_Specialization[i]);
 
-		std::cout << "Specialization [" << (i + 1) << "] Have [" << numberOfPatient << "] Patients\n\n";
-		std::cout << "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n\n";
+		std::cout << "\t\t\t         Specialization [" << (i + 1) << "] Have [" << numberOfPatient << "] Patients\n\n";
+		std::cout << "\t\t\t_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n\n";
 
 		if (numberOfPatient == 0) {
 
-			std::cout << "There is no patient on this specialization waiting list\n\n";
+			std::cout << "\t\t\t   There is no patient on this specialization waiting list\n";
 		}
 		else {
 
@@ -197,7 +204,7 @@ void Print_All_Patient() {
 
 		}
 
-		std::cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n\n";
+		std::cout << "\n\t\t\t-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n\n\n\n\n";
 
 	}
 
@@ -214,11 +221,13 @@ void Perform_Choice(int choice) {
 	case 1:
 		std::system("cls");
 		Add_New_Patient_screen();
+		Go_Back_To_main_Menu();
 		break;
 
 	case 2:
 		std::system("cls");
 		Print_All_Patient();
+		Go_Back_To_main_Menu();
 		break;
 
 	case 3:
