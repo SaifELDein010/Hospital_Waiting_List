@@ -47,7 +47,7 @@ I will store the specialties in order in an array, where each specialty slot con
 ## **Design of screens**
 
 First page 
-![[FirstPageScreen.jpg]]
+![image](https://github.com/user-attachments/assets/d9c2a8f6-8dc2-42fd-ade4-99cccf6035b7)
 
 
 
