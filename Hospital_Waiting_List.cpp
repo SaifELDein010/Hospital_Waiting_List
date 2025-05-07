@@ -90,6 +90,22 @@ int Number_Of_patient_In_waitingList(Node* head) {
 
 }
 
+void Print_Patients(Node* head) {
+
+	short number = 1;
+
+	while (head != nullptr) {
+
+		std::cout << number << ". " << head->fullName << "      his Case is: " << (head->isUrgent == 1) ? "Urgent" : "Normal\n";
+
+		head = head->next;
+		number++;
+
+	}
+
+}
+
+
 int Read_Number_Between_2Numbers(std::string message, std::string errorMessage, int from, int to) {
 
 	int number = 0;
@@ -120,6 +136,12 @@ std::string Read_text(std::string message) {
 }
 
 
+
+
+
+
+
+
 void Add_New_Patient_screen() {
 
 
@@ -141,11 +163,42 @@ void Add_New_Patient_screen() {
 	bool isUrgent = Read_Number_Between_2Numbers("Enter case (1-> Urgent, 0-> Noraml): ", 
 		"Invalid input, Enter again (1-> Urgent, 0-> Noraml): ", 0, 1);
 
+
 	if (isUrgent) {
 		Insert_Patient_In_Front(_Specialization[specialization - 1], fullName); 
 	}
 	else {
 		Insert_Patient_At_End(_Specialization[specialization - 1], fullName); 
+	}
+
+
+}
+
+void Print_All_Patient() {
+
+
+	std::cout << "___ Show all patients ___\n\n";
+
+	for (int i = 0; i < 3; i++) {
+
+
+		int numberOfPatient = Number_Of_patient_In_waitingList(_Specialization[i]);
+
+		std::cout << "Specialization [" << (i + 1) << "] Have [" << numberOfPatient << "] Patients\n\n";
+		std::cout << "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n\n";
+
+		if (numberOfPatient == 0) {
+
+			std::cout << "There is no patient on this specialization waiting list\n\n";
+		}
+		else {
+
+			Print_Patients(_Specialization[i]); 
+
+		}
+
+		std::cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n\n";
+
 	}
 
 
@@ -164,7 +217,8 @@ void Perform_Choice(int choice) {
 		break;
 
 	case 2:
-		// print all patient
+		std::system("cls");
+		Print_All_Patient();
 		break;
 
 	case 3:
@@ -207,7 +261,7 @@ bool Menu_Option_Screen() {
 	return true;
 }
 
-
+	
 int main() {
 
 	bool contnuie = true;
